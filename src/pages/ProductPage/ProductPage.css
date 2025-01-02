@@ -53,6 +53,12 @@
 }
 
 .spiner{
+    width: 1320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.spiner{
     display: flex;
     justify-content: center;
     align-items: center;

@@ -22,7 +22,7 @@ export function useProducts(){
                 setProducts(products)
             }
             catch(error){
-                const err = error as string
+                const err = error instanceof Error ? error.message : undefined
                 setError(`${err}`)
             }
             finally{

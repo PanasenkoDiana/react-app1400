@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { IProduct } from './useProducts'
 
+
 // https://fakestoreapi.com/products/id
 export function useProductById(id: number) {
     const [product, setProduct] = useState<IProduct>()
@@ -16,15 +17,9 @@ export function useProductById(id: number) {
                 setProduct(product)
             }
             catch (error) {
-                if (error instanceof SyntaxError) {
-                    setError("Failed to parse server response.");
-                } else if (error instanceof Error) {
-                    // Общие ошибки
-                    setError(error.message);
-                } else {
-                    const err = error as string
-                    setError(`${err}`)
-                }
+                // instanceof
+                const err = error instanceof Error ? error.message : undefined
+                setError(`${err}`)
             }
             finally {
                 setIsLoading(false)
