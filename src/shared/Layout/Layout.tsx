@@ -1,4 +1,4 @@
-import { ReactNode } from "react"
+import { ReactNode, useState } from "react"
 import './Layout.css'
 import { Header } from "../Header/Header"
 import { Main } from "../Main/Main"
@@ -12,12 +12,14 @@ interface ILayoutProps {
     // Якщо між відкриваючим та закриваючим тегом компонента, ми вписуємо будь-які елементи (компоненти), 
     // тоді вони будуть передані в children
     children?: ReactNode
+    setSearch: (value: string) => void;
 }
 
 export function Layout(props: ILayoutProps){
+
     return (
         <div className="layout">
-            <Header></Header>
+            <Header setSearch={props.setSearch}></Header>
             <Main>
                 <Outlet />
             </Main>

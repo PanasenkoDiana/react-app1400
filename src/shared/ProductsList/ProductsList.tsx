@@ -14,9 +14,12 @@ import { useCategories } from "../../hooks/useCategories"
 //     {id: 4, category: 'Chat-Bot', title: 'Daniel4', image: 'https://www.thewildlifediaries.com/wp-content/uploads/2020/01/leopard-walking-768x512.jpg', price: -60}
 // ]
 
+interface IProductsListProps {
+    search: string
+  }
 
 
-export function ProductsList(){
+export function ProductsList({search}: IProductsListProps){
     const {products, isLoading, error} = useProducts()
 
     const [filteredProducts, setFilteredProducts] = useState(products)
@@ -44,6 +47,8 @@ export function ProductsList(){
     //     getCategories()
     // },[])
 
+    console.log(search)
+
 
     return <div className="product-list">
         <div className="select-category">
@@ -62,8 +67,9 @@ export function ProductsList(){
                 // key - уникальный ключ используется при рендере массивов
                 // нужен для идентифицирования reactом элементов которые отображаются
                     // <img src="" alt="" />
-                
-                return <Product key = {product.id} id={product.id} name = {product.title} price = {product.price} img = {product.image}></Product>
+                return (search === '' || product.title.toLowerCase().includes(search.toLowerCase())) ? (
+                    <Product key = {product.id} id={product.id} name = {product.title} price = {product.price} img = {product.image}></Product>
+                ) : null
             }) : (<div>{error}</div>) : (<div className="vortex"><Vortex
                 visible={true}
                 height="200"
