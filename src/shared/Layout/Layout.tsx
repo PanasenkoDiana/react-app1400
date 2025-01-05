@@ -13,13 +13,14 @@ interface ILayoutProps {
     // тоді вони будуть передані в children
     children?: ReactNode
     setSearch: (value: string) => void;
+    search: string;
 }
 
 export function Layout(props: ILayoutProps){
 
     return (
         <div className="layout">
-            <Header setSearch={props.setSearch}></Header>
+            <Header search={props.search} setSearch={props.setSearch}></Header>
             <Main>
                 <Outlet />
             </Main>

@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import "./Header.css";
-// import { SearchBar } from "../SearchBar/SearchBar";
+import { SearchBar } from "../SearchBar/SearchBar";
 
 interface IHeaderProps {
   setSearch: (value: string) => void;
+  search: string;
 }
 
-export function Header({ setSearch }: IHeaderProps) {
+export function Header({ setSearch, search }: IHeaderProps) {
 
   return (
     <div className="headerCSS">
@@ -34,8 +35,8 @@ export function Header({ setSearch }: IHeaderProps) {
       </button>
       </Link>
       
-      <input className="input" type="text" placeholder="Пошук продуктів..."  onChange={(event)=>{setSearch(event.target.value)}}/>
-      
+      {/* <input className="input" type="text" placeholder="Пошук продуктів..."  onChange={(event)=>{setSearch(event.target.value)}}/> */}
+      <SearchBar search={search} setSearch={setSearch}></SearchBar>
       <button id="basket">
         <svg
           width="26"

@@ -1,0 +1,18 @@
+
+.search-product{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.search-prodInfo{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.search-text{
+    font-size: 16px;
+    color: black;
+}

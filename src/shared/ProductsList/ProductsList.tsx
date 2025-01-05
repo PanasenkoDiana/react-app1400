@@ -67,9 +67,9 @@ export function ProductsList({search}: IProductsListProps){
                 // key - уникальный ключ используется при рендере массивов
                 // нужен для идентифицирования reactом элементов которые отображаются
                     // <img src="" alt="" />
-                return (search === '' || product.title.toLowerCase().includes(search.toLowerCase())) ? (
+                return (
                     <Product key = {product.id} id={product.id} name = {product.title} price = {product.price} img = {product.image}></Product>
-                ) : null
+                )
             }) : (<div>{error}</div>) : (<div className="vortex"><Vortex
                 visible={true}
                 height="200"
