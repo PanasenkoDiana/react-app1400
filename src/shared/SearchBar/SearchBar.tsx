@@ -11,12 +11,13 @@ export function SearchBar(){
         setIsModalOpened(true)
     }
 
-
+    // Робимо посилання на div елемент
     const modalContainerRef = useRef<HTMLDivElement | null>(null)
 
 
     return(
         <div ref={modalContainerRef}>
+            {/* event.stopPropagation() - зупиняє всплитіє */}
              <input className="input" type="text" placeholder="Пошук продуктів..." onFocus={inputOnFocus} onClick={(event) => {event.stopPropagation()}}/>
              { isModalOpen === true 
                     // Якщо порівняння повертає true, то заходимо сюди
